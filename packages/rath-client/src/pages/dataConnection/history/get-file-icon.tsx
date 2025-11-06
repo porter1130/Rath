@@ -13,13 +13,13 @@
 // You should have received a copy of the GNU Affero General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-import { getFileTypeIconProps, initializeFileTypeIcons } from '@fluentui/react-file-type-icons';
+import { getFileIconName } from '../../../utils/fileIconMapper';
 
-initializeFileTypeIcons();
-
+/**
+ * Get file icon name using local font-based icons instead of external CDN images
+ */
 const getFileIcon = (fileName: string): string => {
-    const iconProps = getFileTypeIconProps({ extension: /\.(.+)/i.exec(fileName)?.[1], imageFileType: 'png', size: 32 });
-    return iconProps.iconName;
+    return getFileIconName(fileName);
 };
 
 export default getFileIcon;
